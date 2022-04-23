@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 		# @book = Book.find(params[:id]) # 重複コード
 		respond_to do |format|
 			format.html
-			format.json { render json: @book}
+			format.json
 		end
 	end
 
