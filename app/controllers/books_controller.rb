@@ -4,12 +4,13 @@ class BooksController < ApplicationController
 	around_action :action_logger, only: [:destroy]
 
 	def show
-		render :show
+		# renderの記載を省略すると暗黙的にrenderがあるものとして実行される
+		# render :show
 		# @book = Book.find(params[:id]) # 重複コード
-		# respond_to do |format|
-		# 	format.html
-		# 	format.json
-		# end
+		respond_to do |format|
+			format.html
+			format.json { render json: @book}
+		end
 	end
 
 	def destroy
